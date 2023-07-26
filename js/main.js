@@ -269,3 +269,28 @@ images.forEach((img, index) => {
   img.alt = `Imagen ${index + 1}`;
 });
 });
+
+//clase:9
+
+// Evento para cambiar el color de fondo del encabezado al hacer clic en él
+const header = document.querySelector('header');
+header.addEventListener('click', function() {
+  const randomColor = getRandomColor();
+  header.style.backgroundColor = randomColor;
+});
+
+// Evento para mostrar una alerta al pasar el mouse sobre el primer enlace del menú
+const firstMenuLink = document.querySelector('.menu li:first-child a');
+firstMenuLink.addEventListener('mouseover', function() {
+  alert('¡Bienvenido! Haz clic para ver más información.');
+});
+
+// Función auxiliar para obtener un color aleatorio en formato hexadecimal
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
