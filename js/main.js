@@ -294,3 +294,130 @@ function getRandomColor() {
   }
   return color;
 }
+
+
+//clase:10
+
+// Función para guardar datos en el LocalStorage
+function guardarDatosContacto() {
+  const datosContacto = {
+    telefono: '011 4831 8986',
+    email: 'lacasonagb@gmail.com',
+    direccion: 'French 2865'
+  };
+
+  // Convertir el objeto a formato JSON antes de guardar en el LocalStorage
+  const datosJSON = JSON.stringify(datosContacto);
+  localStorage.setItem('contacto', datosJSON);
+  console.log('Datos de contacto guardados en el LocalStorage.');
+}
+
+// Función para recuperar y mostrar los datos de contacto desde el LocalStorage
+function mostrarDatosContacto() {
+  const datosJSON = localStorage.getItem('contacto');
+  if (datosJSON) {
+    // Convertir el JSON a objeto antes de mostrarlo
+    const datosContacto = JSON.parse(datosJSON);
+    console.log('Datos de contacto:');
+    console.log('Teléfono:', datosContacto.telefono);
+    console.log('Email:', datosContacto.email);
+    console.log('Dirección:', datosContacto.direccion);
+  } else {
+    console.log('No se encontraron datos de contacto en el LocalStorage.');
+  }
+}
+
+// Llamamos a la función para guardar los datos de contacto cuando se carga la página
+guardarDatosContacto();
+
+// Llamamos a la función para mostrar los datos de contacto en la consola
+mostrarDatosContacto();
+
+
+
+//clase:11
+
+// Función para guardar datos de talleres en el LocalStorage
+function guardarTalleres() {
+  const talleres = [
+    {
+      nombre: 'Taller de Decoración',
+      instructor: 'Claudia',
+      cupos: 15,
+    },
+    {
+      nombre: 'Taller de Iluminación',
+      instructor: 'Ignacio',
+      cupos: 10,
+    },
+    {
+      nombre: 'Taller de Diseño de Espacios',
+      instructor: 'Sofia',
+      cupos: 20,
+    },
+  ];
+
+  // Convertir el array de talleres a formato JSON antes de guardar en el LocalStorage
+  const talleresJSON = JSON.stringify(talleres);
+  localStorage.setItem('talleres', talleresJSON);
+  console.log('Datos de talleres guardados en el LocalStorage.');
+}
+
+// Función para recuperar y mostrar los talleres desde el LocalStorage
+function mostrarTalleres() {
+  const talleresJSON = localStorage.getItem('talleres');
+  if (talleresJSON) {
+    // Convertir el JSON a array de objetos antes de mostrarlo
+    const talleres = JSON.parse(talleresJSON);
+    console.log('Talleres disponibles:');
+    talleres.forEach((taller) => {
+      console.log('Nombre:', taller.nombre);
+      console.log('Instructor:', taller.instructor);
+      console.log('Cupos:', taller.cupos);
+      console.log('--------------');
+    });
+  } else {
+    console.log('No se encontraron datos de talleres en el LocalStorage.');
+  }
+}
+
+// Llamamos a la función para guardar los datos de talleres cuando se carga la página
+guardarTalleres();
+
+// Llamamos a la función para mostrar los talleres en la consola
+mostrarTalleres();
+
+
+
+//clase:12
+
+// Ejemplo de operador spread con matrices
+const numeros1 = [1, 2, 3];
+const numeros2 = [...numeros1, 4, 5, 6];
+console.log(numeros2); // Output: [1, 2, 3, 4, 5, 6]
+
+// Ejemplo de operador spread con objetos
+const persona1 = { nombre: 'Juan', edad: 30 };
+const persona2 = { ...persona1, ciudad: 'Madrid' };
+console.log(persona2); // Output: { nombre: 'Juan', edad: 30, ciudad: 'Madrid' }
+
+
+// Ejemplo de destructuring con matrices
+const numeros = [10, 20, 30];
+const [num1, num2, num3] = numeros;
+console.log(num1); // Output: 10
+console.log(num2); // Output: 20
+console.log(num3); // Output: 30
+
+// Ejemplo de destructuring con objetos
+const persona = { nombre: 'María', edad: 25 };
+const { nombre, Edad } = persona;
+console.log(nombre); // Output: 'María'
+console.log(edad); // Output: 25
+
+
+const edad = 18;
+const esMayorEdad = edad >= 18 ? 'Mayor de edad' : 'Menor de edad';
+console.log(esMayorEdad); // Output: 'Mayor de edad'
+
+
