@@ -1,56 +1,64 @@
-// Datos de ejemplo de servicios de decoración
-const serviciosDecoracion = [
+// Definición de los servicios en forma de objetos
+var servicios = [
   {
-      nombre: "Interiorismo",
-      imagen: "../img/interiorismo.jpeg",
-      enlace: "https://www.canva.com/design/DAFkCpiseQ0/caEB-9sMmcW5eXHaQKG1KA/edit?utm_content=DAFkCpiseQ0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    nombre: "Servicio 1",
+    descripcion: "Descripción del Servicio 1.",
+    imagen: "../img/servicio1.jpg",
+    enlace: "#"
   },
   {
-      nombre: "Reformas",
-      imagen: "../img/reformas.jpeg",
-      enlace: "https://www.canva.com/design/DAFkCpHOWS4/wURy3qGZGYNTbMtB0Mmd6Q/edit?utm_content=DAFkCpHOWS4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    nombre: "Servicio 2",
+    descripcion: "Descripción del Servicio 2.",
+    imagen: "../img/servicio2.jpg",
+    enlace: "#"
   },
   {
-      nombre: "Asesoría",
-      imagen: "../img/asesoria3.jpeg",
-      enlace: "https://www.canva.com/design/DAFkCs5QpcA/r893VwQNAI7x2SCBZmjkgQ/edit?utm_content=DAFkCs5QpcA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    nombre: "Servicio 3",
+    descripcion: "Descripción del Servicio 3.",
+    imagen: "../img/servicio3.jpg",
+    enlace: "#"
   }
 ];
 
-// Función para renderizar los servicios de decoración
-function renderizarServicios() {
-  const serviciosContainer = document.querySelector('.container1');
+// Función para mostrar dinámicamente los servicios
+function mostrarServicios() {
+  var serviciosContainer = document.querySelector('.servicios-container');
 
-  serviciosDecoracion.forEach(servicio => {
-      const servicioCard = document.createElement("div");
-      servicioCard.classList.add("card");
+  servicios.forEach(function(servicio) {
+    var servicioCard = document.createElement('div');
+    servicioCard.classList.add('card');
 
-      const imagen = document.createElement("figure");
-      const img = document.createElement("img");
-      img.src = servicio.imagen;
-      img.alt = servicio.nombre;
-      imagen.appendChild(img);
+    var imagen = document.createElement('img');
+    imagen.src = servicio.imagen;
+    imagen.alt = servicio.nombre;
 
-      const contenido = document.createElement("div");
-      contenido.classList.add("contenido");
+    var contenido = document.createElement('div');
+    contenido.classList.add('contenido');
 
-      const nombreServicio = document.createElement("p");
-      nombreServicio.textContent = servicio.nombre;
+    var nombre = document.createElement('p');
+    nombre.textContent = servicio.nombre;
 
-      const enlace = document.createElement("a");
-      enlace.textContent = "Mirar";
-      enlace.href = servicio.enlace;
-      enlace.target = "_blank"; // Abrir el enlace en una nueva ventana/tab
+    var descripcion = document.createElement('p');
+    descripcion.textContent = servicio.descripcion;
 
-      contenido.appendChild(nombreServicio);
-      contenido.appendChild(enlace);
+    var enlace = document.createElement('a');
+    enlace.href = servicio.enlace;
+    enlace.textContent = 'Más información';
 
-      servicioCard.appendChild(imagen);
-      servicioCard.appendChild(contenido);
+    contenido.appendChild(nombre);
+    contenido.appendChild(descripcion);
+    contenido.appendChild(enlace);
 
-      serviciosContainer.appendChild(servicioCard);
+    servicioCard.appendChild(imagen);
+    servicioCard.appendChild(contenido);
+
+    serviciosContainer.appendChild(servicioCard);
   });
 }
 
-// Llamar a la función para renderizar los servicios al cargar la página
-renderizarServicios();
+// Llama a la función para mostrar los servicios cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+  mostrarServicios();
+});
+
+
